@@ -32,3 +32,8 @@ The machine running the algorithm could be subject to hardware limitations as me
 The binary search tree might also not be balanced, which would result in the assumption of `O(h) = O(log(n))` being incorrect. 
 
 The search algorithm itself within the binary search tree complete implementation might not be written as efficiently as possible, and could be using a different, worse time complexity to index and search for elements within the tree.
+
+<hr>
+Used https://www.geeksforgeeks.org/complexity-different-operations-binary-tree-binary-search-tree-avl-tree/ as reference for binary search tree performance. Referenced it for `O(h`) = O(log(n))`
+<br><br>
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
