@@ -3,9 +3,11 @@
 - List 3 reasons why asymptotic analysis may be misleading with respect to
   actual performance in practice.
 
-Asymptotic analysis may be misleading with respect to actual performance in practice, due to the fact it reduces information by design. Asymptotic analysis focuses on te growth rate as the input size approaches infinity. This means naturally that more granular information about an algorithm's performance will be lost. For example an analysis such as `O(1n^2 + 2n + 3)` simplifies to `O(n^2)` since lower order terms are ignored. Most of the time this doesn't mean much, but it still means information is being lost.
+Asymptotic analysis may be misleading with respect to actual performance in practice, due to the fact it reduces information by design. Asymptotic analysis focuses on te growth rate as the input size increases to relatively large values. This means naturally that more granular information about an algorithm's performance will be lost. For example an analysis such as `O(1n^2 + 2n + 3)` simplifies to `O(n^2)` since lower order terms are ignored. Most of the time this doesn't mean much, but it still means information is being lost.
 
-Another aspect that could be misleading to actual performance is the fact of unpredictable input data in the real world. Asymptotic analysis assumes worst, average, or best case scenarios for inputs relative to performance. Real world data can be skewed and produce distributions in the performance of an algorithm that have nothing to do with its raw performance.
+Another aspect that could be misleading to actual performance is that asymptotic analysis defines different performance scenarios. If you assume for example, a best-case
+or average-case complexity when real data typically triggers worst-case behavior, then the predictions will be off. The analysis isn't incorrect, but the
+scope of the scenario and the actual distribution of inputs can lead to misleading conclusions.
 
 Finally, the underlying physical hardware is also taken out of the equation with asymptotic analysis. If a machine that an algorithm is running on can not keep up with the demand in computing resources like ram or storage, then it will be bottlenecked in reality. Or on an extreame level enviornmental factors like bitflips and bad hardware can also cause unpredictability in real algorithm perfomance.
 
@@ -27,9 +29,11 @@ If `n = 1000` takes 5 seconds, then `5 * 1.33 = 6.65` seconds for `n = 10000`
   reasons why this could be the case, given that reasoning with the asymptotic
   complexity suggests a different time.
 
-The machine running the algorithm could be subject to hardware limitations as mentioned at the top, such as bottlenecks in ram, or other programs running alongside this algorithm hogging resources. 
+The machine running the algorithm could be subject to hardware limitations. In a scenario where at smaller input sizes, the algorithm fits comfortable in cache or RAM, but at 10,000 elements it exceeds memory thresholds, this could force the system to swap data to disk or cause more frequent garbage collection. This is an example of
+a runtime being dramatically slowed down by something that wouldn't manifest at lower input sizes.
 
-The binary search tree might also not be balanced, which would result in the assumption of `O(h) = O(log(n))` being incorrect. 
+The binary search tree might also not be balanced, which would result in the assumption of `O(h) = O(log(n))` being incorrect. In the case of an unbalanced
+binary tree, we would see an assumption of `O(h) = O(n)` since an unbalanced tree is essentially the same datastructure as a linked list. 
 
 The search algorithm itself within the binary search tree complete implementation might not be written as efficiently as possible, and could be using a different, worse time complexity to index and search for elements within the tree.
 
