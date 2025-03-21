@@ -5,9 +5,7 @@
 
 Asymptotic analysis may be misleading with respect to actual performance in practice, due to the fact it reduces information by design. Asymptotic analysis focuses on te growth rate as the input size increases to relatively large values. This means naturally that more granular information about an algorithm's performance will be lost. For example an analysis such as `O(1n^2 + 2n + 3)` simplifies to `O(n^2)` since lower order terms are ignored. Most of the time this doesn't mean much, but it still means information is being lost.
 
-Another aspect that could be misleading to actual performance is that asymptotic analysis defines different performance scenarios. If you assume for example, a best-case
-or average-case complexity when real data typically triggers worst-case behavior, then the predictions will be off. The analysis isn't incorrect, but the
-scope of the scenario and the actual distribution of inputs can lead to misleading conclusions.
+Another aspect that could be misleading to actual performance is that asymptotic analysis ignores implementation details and language-level overhead. An algorithm that has a theoretical optimal time complexity in one language could be different in another language, or even in the same enviornment with different packages due to factors like library calls, runtime features (garbage collection), and multi-threading. Asymptotic analysis does not factor in external factors such as these.
 
 Finally, the underlying physical hardware is also taken out of the equation with asymptotic analysis. If a machine that an algorithm is running on can not keep up with the demand in computing resources like ram or storage, then it will be bottlenecked in reality. Or on an extreame level enviornmental factors like bitflips and bad hardware can also cause unpredictability in real algorithm perfomance.
 
@@ -33,7 +31,7 @@ The machine running the algorithm could be subject to hardware limitations. In a
 a runtime being dramatically slowed down by something that wouldn't manifest at lower input sizes.
 
 The binary search tree might also not be balanced, which would result in the assumption of `O(h) = O(log(n))` being incorrect. In the case of an unbalanced
-binary tree, we would see an assumption of `O(h) = O(n)` since an unbalanced tree is essentially the same datastructure as a linked list. 
+binary tree, we would see an assumption of `O(h) = O(n)` since an unbalanced tree is essentially the same datastructure as a linked list. This means the expected runtime would be: $5 * \frac{10000}{1000} = 50 \ \text{seconds}$
 
 The search algorithm itself within the binary search tree complete implementation might not be written as efficiently as possible, and could be using a different, worse time complexity to index and search for elements within the tree.
 
