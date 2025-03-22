@@ -31,7 +31,9 @@ The machine running the algorithm could be subject to hardware limitations. In a
 a runtime being dramatically slowed down by something that wouldn't manifest at lower input sizes.
 
 The binary search tree might also not be balanced, which would result in the assumption of `O(h) = O(log(n))` being incorrect. In the case of an unbalanced
-binary tree, we would see an assumption of `O(h) = O(n)` since an unbalanced tree is essentially the same datastructure as a linked list. This means the expected runtime would be: $5 * \frac{10000}{1000} = 50 \ \text{seconds}$
+binary tree, we would see an assumption of `O(h) = O(n)` since an unbalanced tree is essentially the same datastructure as a linked list. In the case of this question it is stated that `n = 10000` took `100 seconds`. In the previous runtime of `O(log(n))`, we can find out how long it takes to do 1 operation with $\frac{5 seconds}{ln(1000)} = 0.724\ \text{seconds}$.
+
+Now: $0.724 * 10000 \ \text{elements} = 7240 \ \text{seconds}$ for an expected worst case scenario runtime of 7240 seconds.
 
 The search algorithm itself within the binary search tree complete implementation might not be written as efficiently as possible, and could be using a different, worse time complexity to index and search for elements within the tree.
 
